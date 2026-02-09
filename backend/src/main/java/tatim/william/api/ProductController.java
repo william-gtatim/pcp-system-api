@@ -1,5 +1,4 @@
 package tatim.william.api;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -8,7 +7,7 @@ import tatim.william.application.product.CreateProductUseCase;
 import tatim.william.application.product.dtos.ProductRequest;
 import tatim.william.application.product.ProductService;
 
-@ApplicationScoped
+
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/products")

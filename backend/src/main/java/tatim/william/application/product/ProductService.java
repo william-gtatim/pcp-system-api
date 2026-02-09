@@ -6,6 +6,7 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import tatim.william.application.product.dtos.ProductRequest;
 import tatim.william.application.product.dtos.ProductResponse;
+import tatim.william.domain.product.Product;
 
 import java.util.List;
 
@@ -19,10 +20,7 @@ public class ProductService {
 
     @Transactional
     public ProductResponse update(ProductRequest dto, Long productId){
-        var product = repository.findById(productId);
-        if(product == null){
-            throw new EntityNotFoundException("O produto não existe");
-        }
+        var product = getByIdOrThrow(productId);
         mapper.updateEntity(dto, product);
         repository.persist(product);
         return mapper.toDto(product);
@@ -31,11 +29,7 @@ public class ProductService {
 
     @Transactional
     public  void delete(Long productId){
-        var product = repository.findById(productId);
-        if(product == null){
-            throw new EntityNotFoundException("O produto não existe");
-        }
-
+        var product = getByIdOrThrow(productId);
         repository.delete(product);
     }
 
@@ -45,6 +39,13 @@ public class ProductService {
                 .stream()
                 .map(mapper::toDto)
                 .toList();
+    }
+
+    private Product getByIdOrThrow(Long id){
+        return repository.findByIdOptional(id)
+                .orElseThrow(
+                        () -> new EntityNotFoundException("O produto não existe")
+                );
     }
 
 
