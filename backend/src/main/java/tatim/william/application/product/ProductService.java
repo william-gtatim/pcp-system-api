@@ -46,7 +46,7 @@ public class ProductService {
                 .toList();
     }
 
-    private Product getByIdOrThrow(Long id){
+    public Product getByIdOrThrow(Long id){
         return repository.findByIdOptional(id)
                 .orElseThrow(
                         () -> new EntityNotFoundException("O produto não existe")

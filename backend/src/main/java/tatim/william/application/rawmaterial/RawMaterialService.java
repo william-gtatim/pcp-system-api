@@ -44,7 +44,7 @@ public class RawMaterialService {
     }
 
 
-    private RawMaterial getByIdOrThrow(Long id){
+    public RawMaterial getByIdOrThrow(Long id){
         return repository.findByIdOptional(id).orElseThrow(
                 () -> new EntityNotFoundException("Essa matéria-prima não existe")
         );
