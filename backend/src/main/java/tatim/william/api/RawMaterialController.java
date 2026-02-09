@@ -1,5 +1,6 @@
 package tatim.william.api;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -22,7 +23,7 @@ public class RawMaterialController {
     }
 
     @POST
-    public Response post(RawMaterialRequest dto){
+    public Response post(@Valid RawMaterialRequest dto){
         return Response.ok(createService.create(dto)).build();
     }
 
@@ -37,7 +38,7 @@ public class RawMaterialController {
     @Path("/{id}")
     public Response update(
             @PathParam("id") Long id,
-            RawMaterialRequest dto
+            @Valid RawMaterialRequest dto
     ){
         return Response.ok(service.update(dto, id)).build();
     }
