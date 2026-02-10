@@ -7,7 +7,7 @@ import tatim.william.domain.product.ProductComposition;
 import java.util.List;
 
 @ApplicationScoped
-public class ProductCompositionRepository implements PanacheRepository<ProductComposition> {
+class ProductCompositionRepository implements PanacheRepository<ProductComposition> {
 
     public List<ProductComposition> findByProductIdWithMaterials(Long productId) {
         return getEntityManager()

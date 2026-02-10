@@ -5,5 +5,5 @@ import jakarta.enterprise.context.ApplicationScoped;
 import tatim.william.domain.rawmaterial.RawMaterial;
 
 @ApplicationScoped
-public class RawMaterialRepository implements PanacheRepository<RawMaterial> {
+class RawMaterialRepository implements PanacheRepository<RawMaterial> {
 }

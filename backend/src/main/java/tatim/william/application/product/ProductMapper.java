@@ -10,7 +10,7 @@ import tatim.william.domain.product.Product;
 
 
 @Mapper(componentModel = "cdi")
-public interface ProductMapper {
+interface ProductMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "code", ignore = true)
     Product toEntity(ProductRequest dto);

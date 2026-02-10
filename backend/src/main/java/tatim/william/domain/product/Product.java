@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import tatim.william.domain.rawmaterial.RawMaterial;
+
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -25,6 +28,11 @@ public class Product {
 
     @Column(name = "price", nullable = false)
     private BigDecimal price;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<ProductComposition> compositions;
+
+
 
 
 }

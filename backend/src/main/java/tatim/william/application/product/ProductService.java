@@ -33,6 +33,10 @@ public class ProductService {
         repository.delete(product);
     }
 
+    public List<Product> getAllProductsWithCompositions(){
+        return repository.findAllProductsWhitCompositions();
+    }
+
     public ProductResponse get(Long id){
         return mapper.toDto(getByIdOrThrow(id));
     }

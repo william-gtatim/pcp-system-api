@@ -6,7 +6,7 @@ import tatim.william.application.product.composition.dtos.ProductCompositionResp
 import tatim.william.domain.product.ProductComposition;
 
 @Mapper(componentModel = "cdi")
-public interface ProductCompositionMapper {
+interface ProductCompositionMapper {
 
     @Mapping(target = "rawMaterialId", source = "rawMaterial.id")
     @Mapping(target = "rawMaterialName", source = "rawMaterial.name")

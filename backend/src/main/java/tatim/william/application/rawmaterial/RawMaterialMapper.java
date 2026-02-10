@@ -8,7 +8,7 @@ import tatim.william.application.rawmaterial.dtos.RawMaterialResponse;
 import tatim.william.domain.rawmaterial.RawMaterial;
 
 @Mapper(componentModel = "cdi")
-public interface RawMaterialMapper {
+interface RawMaterialMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "code", ignore = true)
     RawMaterial toEntity(RawMaterialRequest dto);
