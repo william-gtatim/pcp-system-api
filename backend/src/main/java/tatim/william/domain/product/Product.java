@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import tatim.william.domain.rawmaterial.RawMaterial;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package tatim.william.application.planning;
 
-import io.quarkus.arc.profile.IfBuildProfile;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import tatim.william.application.product.ProductService;
@@ -19,8 +19,6 @@ import java.util.Map;
 public class ProductionPlanningService {
     @Inject
     ProductService productService;
-    @Inject
-    RawMaterialService rawMaterialService;
 
     public List<ProductionPlanningResponse> plan(){
         var products = productService.getAllProductsWithCompositions();

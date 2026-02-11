@@ -29,10 +29,6 @@ public class RawMaterialService {
         return mapper.toDto(entity);
     }
 
-    public List<RawMaterial> getAllRawMaterials(){
-        return repository.listAll();
-    }
-
     @Transactional
     public RawMaterialResponse update(RawMaterialRequest dto, Long id){
         var entity = getByIdOrThrow(id);
