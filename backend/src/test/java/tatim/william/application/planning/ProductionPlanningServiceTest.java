@@ -1,4 +1,5 @@
 package tatim.william.application.planning;
+
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
@@ -7,28 +8,26 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 @QuarkusTest
 class ProductionPlanningServiceTest {
+
     @Inject
     ProductionPlanningService planningService;
 
     @Test
     void shouldPlanProduction() {
+
         var result = planningService.plan();
+        var items = result.items();
 
-        assertEquals(2, result.size());
+        assertEquals(1, items.size());
 
-        var first = result.get(0);
-        var second = result.get(1);
+        var first = items.getFirst();
 
-        assertEquals("PAO", first.code());
-        assertEquals(10, first.quantity());
-        assertEquals(new BigDecimal("500.00"), first.totalRevenue());
+        assertEquals("PIZZA", first.code());
+        assertEquals(4, first.quantity());
+        assertEquals(new BigDecimal("400.00"), first.totalRevenue());
 
-        assertEquals("PIZZA", second.code());
-        assertEquals(4, second.quantity());
-        assertEquals(new BigDecimal("400.00"), second.totalRevenue());
+        assertEquals(new BigDecimal("400.00"), result.totalRevenue());
     }
-
 }

@@ -9,17 +9,19 @@ import static org.hamcrest.Matchers.*;
 
 @QuarkusTest
 class ProductionPlanningControllerTest {
+
     @Test
-    void shouldReturnProductionPlanningList() {
+    void shouldReturnProductionPlanningResult() {
 
         given()
                 .accept(ContentType.JSON)
                 .when()
-                .get("/production-planing")
+                .get("/production-planning")
                 .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
-                .body("", is(notNullValue()))
-                .body("", is(instanceOf(java.util.List.class)));
+                .body("items", notNullValue())
+                .body("items", instanceOf(java.util.List.class))
+                .body("totalRevenue", notNullValue());
     }
 }

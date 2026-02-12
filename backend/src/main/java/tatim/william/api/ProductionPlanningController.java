@@ -11,7 +11,7 @@ import tatim.william.application.planning.ProductionPlanningService;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("production-planing")
+@Path("/production-planning")
 public class ProductionPlanningController {
     @Inject
     ProductionPlanningService service;
